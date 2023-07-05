@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Carousel from 'react-bootstrap/Carousel';
 import Script from 'next/script';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -160,7 +161,7 @@ export default function Home() {
                 <h2 className="sec-title fw-800 text-capitalize">hnsfund.com Token Economy</h2>
               </div>
               <div className="dytok-outer" id="buytoken">
-              <script class="dytok-script" src="https://tools.contrib.com/cwidget/buyeshtoken?d=<?php echo $info['domain']; ?>&t=1646282837"></script>
+              <script class="dytok-script" src="https://tools.contrib.com/cwidget/buyeshtoken?d="></script>
               </div>
             </div>
           </div>
@@ -188,7 +189,7 @@ export default function Home() {
               <h2 className="sec-title fw-800 text-capitalize mb-5">hnsfund.com Latest Tasks</h2>
               <div className="row">
                 <div className="col-md-12 col-widget-tasks">
-                  <script src="https://tools.contrib.com/eservice/blockchaintasks?d=<?=$info['domain']?>"></script>
+                  <script src="https://tools.contrib.com/eservice/blockchaintasks?d="></script>
                 </div>
               </div>
             </div>
@@ -389,23 +390,71 @@ export default function Home() {
                 <div className="col-md-3">
                   <h3 className="text-uppercase footer--title">get started</h3>
                   <ul className="list-unstyled f-a-links">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/partner">Partner With Us</a></li>
-                    <li><a href="/apply">Apply</a></li>
-                    <li><a href="https://www.contrib.com/to/<?=$info['domain']?>">Contribute</a></li>
-                    <li><a href="/invest">Invest</a></li>
-                    <li><a href="/invest">Apps</a></li>
-                    <li><a href="/developer">Developers</a></li>
+                    <li>
+                      <Link href="/partner" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        partner with us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/staffing" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        apply
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/referral" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        referral
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/apps" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        apps
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/developer" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        developer
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/invest" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        invest
+                      </Link>
+                    </li>
+                    <li>
+                      <a href="" target='_blank' className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        contribute
+                      </a>
+                    </li>
                   </ul>
                 </div>
                 <div className="col-md-3">
                   <h3 className="text-uppercase footer--title">company</h3>
                   <ul className="list-unstyled f-a-links f-a-links-mrgBtm">
-                    <li><a href="/about">About</a></li>								
-                    <li><a href="/terms">Terms</a></li>
-                    <li><a href="/policy">Cookie Policy</a></li>
-                    <li><a href="/privacy">Privacy</a></li>
-                    <li><a href="https://www.domaindirectory.com/policypage/unsubscribe?domain=hnsfund.com" target="blank">Unsubscribe</a></li>
+                    <li>
+                      <Link href="/about" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/contact" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        contact
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/terms" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        terms
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/cookie" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        cookie policy
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/privacy" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                        privacy
+                      </Link>
+                    </li>
                   </ul>
                 </div>
                 <div className="col-md-3">
@@ -430,9 +479,26 @@ export default function Home() {
                     <div className="col-md-6 f-a-links">© 2022 <span className="text-capitalize">hnsfund.com</span>. All Rights Reserved.</div>
                     <div className="col-md-6">
                       <ul className="list-inline text-end f-a-links">
-                        <li className="list-inline-item"><a href="/about">About</a></li>
-                        <li className="list-inline-item"><a href="/terms">Terms</a></li>
-                        <li className="list-inline-item"><a href="/privacy">Privacy</a></li>
+                        <li>
+                          <Link href="/about" className='tw-no-underline text-secondary tw-inline-block list-inline-item tw-capitalize'>
+                            About
+                          </Link>
+                        </li>
+                        <li>
+                        <Link href="/terms" className='tw-no-underline text-secondary tw-inline-block list-inline-item tw-capitalize'>
+                          terms
+                        </Link>
+                        </li>
+                        <li>
+                          <Link href="/cookie" className='tw-no-underline text-secondary tw-inline-block list-inline-item tw-capitalize'>
+                            cookie policy
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/privacy" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                            privacy
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                   </div>

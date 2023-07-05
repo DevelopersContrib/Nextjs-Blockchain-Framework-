@@ -256,3 +256,10 @@ video {
   color: #ffffff;
 	position: relative;
 }
+.tw-capitalize {
+	text-transform: capitalize;
+}
+.list-inline li {
+	display: inline-block;
+	margin-left: 5px;
+}
