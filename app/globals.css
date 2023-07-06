@@ -4,15 +4,122 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   font-family: 'Nunito Sans', sans-serif !important;
 }
 
-h1,.h1,
-h2,.h2,
-h3,.h3,
-h4,.h4,
-h5,.h5,
-h6,.h6{
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   font-family: 'Roboto', sans-serif !important;
+}
+
+/* Note:: Blockchain Task CSS ------------------------- */
+.col-widget-tasks h2 {
+  display: none;
+}
+
+.col-tasks {
+  background: #fff;
+  box-shadow: 0 64px 80px -25px rgba(139, 144, 153, .15);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.ribbon {
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+}
+
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: 1;
+  content: '';
+  display: block;
+  border: 5px solid #bb3a34;
+}
+
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 8px 0;
+  background: linear-gradient(#e74841 0%, #bb3a34 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  color: #fff;
+  font: 500 12px/1 'Lato', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ribbon-top-right {
+  top: -10px;
+  right: -10px;
+}
+
+.ribbon-top-right::before,
+.ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+
+.ribbon-top-right::before {
+  top: 0;
+  left: 13px;
+}
+
+.ribbon-top-right::after {
+  bottom: 13px;
+  right: 0;
+}
+
+.ribbon-top-right span {
+  left: -25px;
+  top: 30px;
+  transform: rotate(45deg);
+}
+
+.col-tasks h3 {
+  padding: 10px 0px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.20rem;
+  padding-right: 25px;
+}
+
+.col-tasks p {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@media (min-width: 1200px) {
+  .line-1 {
+    position: absolute;
+    left: calc(50% - 305px);
+  }
+
+  .line-2 {
+    position: absolute;
+    right: calc(50% - 308px);
+    bottom: 150px;
+  }
 }
