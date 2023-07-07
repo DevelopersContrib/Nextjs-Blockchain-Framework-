@@ -1,10 +1,23 @@
+import HeaderWidget from '../components/HeaderWidget'
 import Image from "next/image"
+import Container from '../components/Container'
 import Script from "next/script"
 import Footer from '../components/Footer'
 import Link from "next/link"
-export default function Home() {
+import { getData, getDomain } from '../lib/data'
+import Logo from '../components/logo'
+export default async  function Home() {
+
+  const c = await getData();
+  const domain = getDomain();
+  const twitter_url = c.data.twitter;
+  const fb_url = c.data.fb;
+  const linkedin_url = c.data.linkedin;
+
+
   return (
     <>
+      <HeaderWidget piwikId={c.data.piwikId} accountGA={c.data.accountGA} adsenseClientId={c.data.adsenseClientId}  />
       <section className="tw-bg-black tw-fixed tw-w-full tw-px-4 tw-py-2 text-white tw-z-10">
         <div className="container text-center tw-space-x-2">
           <strong className="tw-text-base">Contribute and become a DAO member, earn crypto rewards!</strong>
@@ -18,33 +31,21 @@ export default function Home() {
         <div className="container tw-relative text-white">
           <div className="row">
             <div className="col-xl-12 text-center">
-              <h2 className="tw-text-5xl tw-font-medium tw-text-blue-500">
-                Agingrepair.com
-              </h2>
+              <Logo domain={domain} logo={c.data.logo}/>
+              
               <h1 className="tw-font-medium tw-text-base lg:tw-text-6xl tw-break-words mb-3">
-                Join our exclusive community of like minded people on agingrepair.com
+                Join our exclusive community of like minded people on {domain}
               </h1>
               <h3 className="tw-text-white/75 tw-text-2xl tw-font-medium">
-                Help us build out agingrepair.com with other great people around the world and earn Eshares, compensation and experience with other like minded people.
+                Help us build out {domain} with other great people around the world and earn Eshares, compensation and experience with other like minded people.
               </h3>
             </div>
             <div className="col-xl-12">
               <div className="row">
                 <div className="col-xl-8 offset-xl-2">
                   <div className="tw-bg-[rgba(0,0,0,0.75)] tw-p-8 tw-rounded-lg">
-                    <div className="">
-                      <div className="input-group input-group-lg mb-3">
-                        <input type="text" name="email" className="form-control" placeholder="Email address..." />
-                        <button
-                          className="btn btn-danger lg:tw-px-[3rem!important]"
-                          type="button"
-
-                        >Join The Wailist</button>
-                      </div>
-                      <div className="d-block text-danger small mt-2">
-                        Email is required.
-                      </div>
-                    </div>
+                  <Container domain={domain}/>
+                   
                   </div>
                 </div>
               </div>
@@ -81,11 +82,11 @@ export default function Home() {
           <div className="row">
             <div className="col-xl-12 tw-text-center">
               <h1 className="tw-font-extrabold tw-text-5xl tw-capitalize mb-5">
-                Agingrepair.Com Latest Tasks
+                {domain} Latest Tasks
               </h1>
             </div>
             <div className="col-xl-12 col-widget-tasks">
-              <Script src="https://tools.contrib.com/eservice/blockchaintasks?d=agingrepair.com&container=blockchain-tasks" />
+              <Script src="https://tools.contrib.com/eservice/blockchaintasks?d={domain}&container=blockchain-tasks" />
               <div id="blockchain-tasks"></div>
             </div>
           </div>
@@ -118,7 +119,7 @@ export default function Home() {
                     className="img-fluid"
                   />
                 </div>
-                <h5 className="fw-800"> Join Agingrepair.com Community </h5>
+                <h5 className="fw-800"> Join {domain} Community </h5>
                 <p> Get involved is simple. Join our growing community. </p>
                 <a href="#joincomm" className="btn btn-success">Join Our Community</a>
               </div>
@@ -194,16 +195,16 @@ export default function Home() {
                 Follow, Build, and Help Launch
               </h1>
               <p>
-                Follow agingrepair.com and other great ventures on the Contrib platform.
+                Follow {domain} and other great ventures on the Contrib platform.
               </p>
               <p>
-                Build agingrepair.com and Help cofound a relevant new Startup, Part-Time.
+                Build {domain} and Help cofound a relevant new Startup, Part-Time.
               </p>
               <p>
-                Launch agingrepair.com and you could be front and center in the process. Launch agingrepair.com with us today!
+                Launch {domain} and you could be front and center in the process. Launch {domain} with us today!
               </p>
-              <a href="https://www.contrib.com/signup/follow/agingrepair.com" className="btn btn-lg btn-primary">
-                Learn About agingrepair.com
+              <a href="https://www.contrib.com/signup/follow/{domain}" className="btn btn-lg btn-primary">
+                Learn About {domain}
               </a>
             </div>
           </div>
@@ -215,7 +216,7 @@ export default function Home() {
             <div className="col-xl-12">
               <div className="title-center-circle">
                 <h2 className='tw-font-extrabold tw-text-5xl text-uppercase text-center'>
-                  <span className="text-capitalize">Agingrepair.com</span> team
+                  <span className="text-capitalize">{domain}</span> team
                 </h2>
               </div>
             </div>
@@ -234,7 +235,7 @@ export default function Home() {
                   />
                 </div>
                 <div className='text-secondary'>
-                  <strong><span className="text-capitalize">Agingrepair.com</span></strong> is a bit different than most startups. We are small, diverse team working remotely and loving what we do. We only cowork with others who also have this same passion.
+                  <strong><span className="text-capitalize">{domain}</span></strong> is a bit different than most startups. We are small, diverse team working remotely and loving what we do. We only cowork with others who also have this same passion.
                 </div>
               </div>
             </div>
@@ -252,7 +253,7 @@ export default function Home() {
                       />
                     </div>
                     <div className='text-secondary'>
-                      <strong><span className="text-capitalize">Agingrepair.com</span></strong> seeks to contract and hire the best people and then trust them: it&ampos;s the thinking behind the work at their own time policy.
+                      <strong><span className="text-capitalize">{domain}</span></strong> seeks to contract and hire the best people and then trust them: it&ampos;s the thinking behind the work at their own time policy.
                     </div>
                   </div>
                 </div>
@@ -268,13 +269,13 @@ export default function Home() {
                       />
                     </div>
                     <div className='text-secondary'>
-                      The <strong><span className="text-capitalize">Agingrepair.com</span></strong> team loves building things and focus on being the most productive individual, not the amount of time spent in the office.
+                      The <strong><span className="text-capitalize">{domain}</span></strong> team loves building things and focus on being the most productive individual, not the amount of time spent in the office.
                     </div>
                   </div>
                 </div>
               </div>
               <p className='text-secondary'>
-                We put a lot of effort into making <span className="text-capitalize">Agingrepair.com</span> a fun place to work for people who like getting things done. So if you&apos;re game with this then enter your email address and be a part of the global team.
+                We put a lot of effort into making <span className="text-capitalize">{domain}</span> a fun place to work for people who like getting things done. So if you&apos;re game with this then enter your email address and be a part of the global team.
               </p>
             </div>
           </div>
@@ -367,7 +368,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer domain={domain} twitter_url={twitter_url} fb_url={fb_url} linkedin_url={linkedin_url} />
     </>
   )
 }

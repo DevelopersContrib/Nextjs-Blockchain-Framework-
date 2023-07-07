@@ -1,8 +1,10 @@
 import Script from "next/script"
+import { getDomain} from '../../lib/data';
 const page = () => {
+  const domain = getDomain();
   return (
     <>
-      <Script src={"https://tools.contrib.com/pages/privacy?d=agingrepair.com&container=privacy-script"} />
+      <Script src={"https://tools.contrib.com/pages/privacy?d="+domain+"&container=privacy-script"} />
       <div className="privacy-script"></div>
     </>
   )

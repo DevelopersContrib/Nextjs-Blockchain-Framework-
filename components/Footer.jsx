@@ -4,7 +4,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default async function Footer() {
+export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
+  const contri_link = 'https://www.contrib.com/to/'+domain;
   return (
     <>
       <footer className='tw-text-white tw-relative'>
@@ -12,9 +13,9 @@ export default async function Footer() {
           <div className="container">
             <div className="row gy-3">
               <div className="col-xl-3">
-                <h3 className="tw-uppercase tw-text-2xl">Agingrepair.com</h3>
+                <h3 className="tw-uppercase tw-text-2xl">{domain}</h3>
                 <div className="">
-                Join our exclusive community of like minded people on Agingrepair.com
+                Join our exclusive community of like minded people on {domain}
                 </div>
               </div>
               <div className="col-xl-3">
@@ -51,7 +52,7 @@ export default async function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <a href="https://www.contrib.com/to/agingrepair.com" target='_blank' className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                    <a href={contri_link} target='_blank' className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
                       contribute
                     </a>
                   </li>
@@ -105,17 +106,17 @@ export default async function Footer() {
                 <h3 className="tw-uppercase tw-text-2xl">socials</h3>
                 <ul className="list-inline">
                   <li className="list-inline-item">
-                    <a href="#" className='tw-no-underline text-secondary tw-inline-block'>
+                    <a href={twitter_url} className='tw-no-underline text-secondary tw-inline-block'>
                       <FontAwesomeIcon icon={faTwitter} className="tw-w-8 tw-h-[2rem!important] text-secondary" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="#" className='tw-no-underline text-secondary tw-inline-block'>
+                    <a href={fb_url} className='tw-no-underline text-secondary tw-inline-block'>
                       <FontAwesomeIcon icon={faFacebookF} className="tw-w-8 tw-h-[2rem!important] text-secondary" />
                     </a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="#" className='tw-no-underline text-secondary tw-inline-block'>
+                    <a href={linkedin_url} className='tw-no-underline text-secondary tw-inline-block'>
                       <FontAwesomeIcon icon={faLinkedinIn} className="tw-w-8 tw-h-[2rem!important] text-secondary" />
                     </a>
                   </li>
@@ -128,7 +129,7 @@ export default async function Footer() {
           <div className="container">
             <div className="row">
               <div className="col-xl-6">
-              &copy; {new Date().getFullYear()} <span className="tw-capitalize">Agingrepair.com</span>. All Rights Reserved.
+              &copy; {new Date().getFullYear()} <span className="tw-capitalize">{domain}</span>. All Rights Reserved.
               </div>
               <div className="col-xl-6 lg:tw-text-right">
                 <ul className="mb-0 list-inline">
