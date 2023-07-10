@@ -13,6 +13,7 @@ export default async  function Home() {
   const twitter_url = c.data.twitter;
   const fb_url = c.data.fb;
   const linkedin_url = c.data.linkedin;
+  const learn_link = "https://www.contrib.com/signup/follow/"+domain;
 
 
   return (
@@ -203,7 +204,7 @@ export default async  function Home() {
               <p>
                 Launch {domain} and you could be front and center in the process. Launch {domain} with us today!
               </p>
-              <a href="https://www.contrib.com/signup/follow/{domain}" className="btn btn-lg btn-primary">
+              <a href={learn_link} className="btn btn-lg btn-primary">
                 Learn About {domain}
               </a>
             </div>
