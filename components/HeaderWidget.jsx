@@ -70,7 +70,7 @@ const HeaderWidget = ({ piwikId, accountGA, adsenseClientId }) => {
     //   widgetContainer.removeChild(script);
     // };
   }, []);
- 
+  return null;
 };
 
 export default HeaderWidget;
