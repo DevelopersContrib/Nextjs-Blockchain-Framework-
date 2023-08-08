@@ -22,6 +22,11 @@ export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
                 <h3 className="tw-uppercase tw-text-2xl">get started</h3>
                 <ul className="list-unstyled">
                   <li>
+                    <Link href="/" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      home
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/partner" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
                       partner with us
                     </Link>
@@ -32,8 +37,13 @@ export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/referral" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
-                      referral
+                    <a href={contri_link} target='_blank' className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      contribute
+                    </a>
+                  </li>
+                  <li>
+                    <Link href="/invest" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      invest
                     </Link>
                   </li>
                   <li>
@@ -43,18 +53,13 @@ export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
                   </li>
                   <li>
                     <Link href="/developer" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
-                      developer
+                      developers
                     </Link>
                   </li>
                   <li>
-                    <Link href="/invest" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
-                      invest
+                    <Link href="/referral" target="_blank" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      referral
                     </Link>
-                  </li>
-                  <li>
-                    <a href={contri_link} target='_blank' className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
-                      contribute
-                    </a>
                   </li>
                 </ul>
               </div>
@@ -64,11 +69,6 @@ export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
                   <li>
                     <Link href="/about" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
                       About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
-                      contact
                     </Link>
                   </li>
                   <li>
@@ -84,6 +84,11 @@ export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
                   <li>
                     <Link href="/privacy" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
                       privacy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`https://domaindirectory.com/policypage/unsubscribe?domain=`+domain} target="_blank" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      Unsubscribe
                     </Link>
                   </li>
                 </ul>
