@@ -42,11 +42,6 @@ export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
                     </a>
                   </li>
                   <li>
-                    <Link href="/invest" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
-                      invest
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/apps" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
                       apps
                     </Link>
@@ -59,6 +54,26 @@ export default async function Footer({domain,twitter_url,fb_url,linkedin_url}) {
                   <li>
                     <Link href="/referral" target="_blank" className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
                       referral
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      Build
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      invest
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      manage
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`https://domaindirectory.com/servicepage/?domain=${domain}`} className='tw-no-underline text-secondary tw-inline-block tw-capitalize'>
+                      monetize
                     </Link>
                   </li>
                 </ul>
