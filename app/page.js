@@ -1,12 +1,13 @@
-import HeaderWidget from "../components/HeaderWidget";
 import BlogList from "@/modules/blog/BlogList";
 import Image from "next/image";
-import Container from "../components/Container";
-import Script from "next/script";
-import Footer from "../components/Footer";
 import Link from "next/link";
-import { getData, getDomain } from "../lib/data";
+import Script from "next/script";
+import Container from "../components/Container";
+import Footer from "../components/Footer";
+import HeaderWidget from "../components/HeaderWidget";
 import Logo from "../components/logo";
+import { getData, getDomain } from "../lib/data";
+import CtaAdaoSection from "./home/CtaAdaoSection";
 export default async function Home() {
   const c = await getData();
   const domain = getDomain();
@@ -22,7 +23,7 @@ export default async function Home() {
         accountGA={c.data.accountGA}
         adsenseClientId={c.data.adsenseClientId}
       />
-      <section className="tw-bg-black tw-fixed tw-w-full tw-px-4 tw-py-2 text-white tw-z-10">
+      <section className="tw-bg-black  tw-fixed tw-w-full tw-px-4 tw-py-2 text-white tw-z-50">
         <div className="container text-center tw-space-x-2">
           <strong className="tw-text-base">
             Contribute and become a DAO member, earn crypto rewards!
@@ -41,6 +42,28 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+      <section className="tw-w-full tw-bg-[#1A122A] tw-text-white tw-fixed tw-top-[42px] tw-z-50">
+        <div className="container tw-overflow-hidden tw-items-center tw-flex">
+          <marquee
+            direction="left"
+            height="33px"
+            className="tw-text-sm tw-flex tw-gap-2 tw-items-center"
+          >
+            <span className="tw-inline-flex tw-text-[#00f6ff] tw-mr-2">
+              Flash News!
+            </span>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="tw-text-white/90 hover:tw-text-white tw-transition-colors tw-inline-flex tw-items-center blink"
+              href="https://adao.ai/?referral=jstack.com"
+            >
+              ADAO token is dropping to your Base chain soon! Get ADAO today
+              while it&apos;s on sale!
+            </a>
+          </marquee>
+        </div>
+      </section>
       <section className="tw-min-h-[calc(100vh-43px)] tw-py-14 tw-flex tw-w-full tw-items-center tw-justify-center tw-relative">
         <video
           className="tw-object-cover tw-w-[100vw] tw-h-[100vh] tw-fixed tw-top-0 tw-left-0"
@@ -54,17 +77,15 @@ export default async function Home() {
         <div className="container tw-relative text-white">
           <div className="row">
             <div className="col-xl-12 text-center">
-              <Logo
-                domain={domain}
-                logo={c.data.logo}
-              />
+              <Logo domain={domain} logo={c.data.logo} />
 
               <h1 className="tw-font-medium tw-text-base lg:tw-text-6xl tw-break-words mb-3">
                 Join our exclusive community of like minded people on {domain}
               </h1>
               <h3 className="tw-text-white/75 tw-text-2xl tw-font-medium">
-                Help us build out {domain} with other great people around the world and earn
-                Eshares, compensation and experience with other like minded people.
+                Help us build out {domain} with other great people around the
+                world and earn Eshares, compensation and experience with other
+                like minded people.
               </h3>
             </div>
             <div className="col-xl-12">
@@ -79,6 +100,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <CtaAdaoSection />
       <section className="tw-py-24 tw-bg-white tw-relative">
         <div className="container">
           <div className="row">
@@ -93,7 +115,9 @@ export default async function Home() {
                   RealtyDao.com
                 </a>
               </h5>
-              <h1 className="tw-font-extrabold tw-text-5xl">rDAO Token Usage Info</h1>
+              <h1 className="tw-font-extrabold tw-text-5xl">
+                rDAO Token Usage Info
+              </h1>
             </div>
             <div className="col-xl-12 text-center">
               <Image
@@ -137,10 +161,13 @@ export default async function Home() {
                   Contrib.com
                 </a>
               </h5>
-              <h1 className="tw-font-extrabold tw-text-5xl">Get Rewarded for Every Contribution</h1>
+              <h1 className="tw-font-extrabold tw-text-5xl">
+                Get Rewarded for Every Contribution
+              </h1>
               <p>
-                Every time you complete a task, you do a little bit of good creating added value to
-                the ecosystem, so it’s only right that you get something back.
+                Every time you complete a task, you do a little bit of good
+                creating added value to the ecosystem, so it’s only right that
+                you get something back.
               </p>
             </div>
           </div>
@@ -158,10 +185,7 @@ export default async function Home() {
                 </div>
                 <h5 className="fw-800"> Join {domain} Community </h5>
                 <p> Get involved is simple. Join our growing community. </p>
-                <a
-                  href="#joincomm"
-                  className="btn btn-success"
-                >
+                <a href="#joincomm" className="btn btn-success">
                   Join Our Community
                 </a>
               </div>
@@ -187,11 +211,11 @@ export default async function Home() {
                   />
                 </div>
                 <h5 className="fw-800"> Complete Tasks and Challenges </h5>
-                <p> Join the challenge today and test how well you stack up. </p>
-                <a
-                  href="#comtasks"
-                  className="btn btn-primary"
-                >
+                <p>
+                  {" "}
+                  Join the challenge today and test how well you stack up.{" "}
+                </p>
+                <a href="#comtasks" className="btn btn-primary">
                   Complete Tasks
                 </a>
               </div>
@@ -218,10 +242,7 @@ export default async function Home() {
                 </div>
                 <h5 className="fw-800"> Get Tokens and Cash Rewards </h5>
                 <p> The more tokens you have. The more rewards you'll earn. </p>
-                <a
-                  href="#buytoks"
-                  className="btn btn-danger"
-                >
+                <a href="#buytoks" className="btn btn-danger">
                   Get Tokens
                 </a>
               </div>
@@ -243,17 +264,22 @@ export default async function Home() {
               />
             </div>
             <div className="col-xl-6 tw-flex tw-justify-center tw-flex-col">
-              <h1 className="tw-font-extrabold tw-text-5xl mb-4">Follow, Build, and Help Launch</h1>
-              <p>Follow {domain} and other great ventures on the Contrib platform.</p>
-              <p>Build {domain} and Help cofound a relevant new Startup, Part-Time.</p>
+              <h1 className="tw-font-extrabold tw-text-5xl mb-4">
+                Follow, Build, and Help Launch
+              </h1>
               <p>
-                Launch {domain} and you could be front and center in the process. Launch {domain}{" "}
-                with us today!
+                Follow {domain} and other great ventures on the Contrib
+                platform.
               </p>
-              <a
-                href={learn_link}
-                className="btn btn-lg btn-primary"
-              >
+              <p>
+                Build {domain} and Help cofound a relevant new Startup,
+                Part-Time.
+              </p>
+              <p>
+                Launch {domain} and you could be front and center in the
+                process. Launch {domain} with us today!
+              </p>
+              <a href={learn_link} className="btn btn-lg btn-primary">
                 Learn About {domain}
               </a>
             </div>
@@ -290,8 +316,9 @@ export default async function Home() {
                   <strong>
                     <span className="text-capitalize">{domain}</span>
                   </strong>{" "}
-                  is a bit different than most startups. We are small, diverse team working remotely
-                  and loving what we do. We only cowork with others who also have this same passion.
+                  is a bit different than most startups. We are small, diverse
+                  team working remotely and loving what we do. We only cowork
+                  with others who also have this same passion.
                 </div>
               </div>
             </div>
@@ -312,8 +339,9 @@ export default async function Home() {
                       <strong>
                         <span className="text-capitalize">{domain}</span>
                       </strong>{" "}
-                      seeks to contract and hire the best people and then trust them: it&ampos;s the
-                      thinking behind the work at their own time policy.
+                      seeks to contract and hire the best people and then trust
+                      them: it&ampos;s the thinking behind the work at their own
+                      time policy.
                     </div>
                   </div>
                 </div>
@@ -333,16 +361,19 @@ export default async function Home() {
                       <strong>
                         <span className="text-capitalize">{domain}</span>
                       </strong>{" "}
-                      team loves building things and focus on being the most productive individual,
-                      not the amount of time spent in the office.
+                      team loves building things and focus on being the most
+                      productive individual, not the amount of time spent in the
+                      office.
                     </div>
                   </div>
                 </div>
               </div>
               <p className="text-secondary">
-                We put a lot of effort into making <span className="text-capitalize">{domain}</span>{" "}
-                a fun place to work for people who like getting things done. So if you&apos;re game
-                with this then enter your email address and be a part of the global team.
+                We put a lot of effort into making{" "}
+                <span className="text-capitalize">{domain}</span> a fun place to
+                work for people who like getting things done. So if you&apos;re
+                game with this then enter your email address and be a part of
+                the global team.
               </p>
             </div>
           </div>
@@ -400,7 +431,9 @@ export default async function Home() {
                 </div>
                 <div className="">
                   <h5 className="tw-font-semibold">Crypto Marketplace</h5>
-                  <p className="mb-0">Contribute to blockchain projects on premium urls today</p>
+                  <p className="mb-0">
+                    Contribute to blockchain projects on premium urls today
+                  </p>
                 </div>
               </div>
             </div>
