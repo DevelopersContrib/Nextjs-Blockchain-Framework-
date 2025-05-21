@@ -1,3 +1,4 @@
+import Notification from "@/components/notification/Notification";
 import BlogList from "@/modules/blog/BlogList";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +9,7 @@ import HeaderWidget from "../components/HeaderWidget";
 import Logo from "../components/logo";
 import { getData, getDomain } from "../lib/data";
 import CtaAdaoSection from "./home/CtaAdaoSection";
+
 export default async function Home() {
   const c = await getData();
   const domain = getDomain();
@@ -467,6 +469,7 @@ export default async function Home() {
       <section className="tw-py-24 tw-bg-white tw-relative">
         <BlogList />
       </section>
+      <Notification />
       <Footer
         domain={domain}
         twitter_url={twitter_url}
