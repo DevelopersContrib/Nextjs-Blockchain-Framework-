@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Sparkles, Rocket, Crown, Zap, ArrowRight, Clock, CheckCircle } from 'lucide-react';
 
 /**
@@ -246,10 +247,11 @@ export const First100FoundersModal = ({
 
   console.log('[First100FoundersModal] RENDERING MODAL NOW');
 
-  return (
+  // Modal content to be rendered in portal
+  const modalContent = (
     <div 
-      className="tw-fixed tw-inset-0 tw-w-full tw-h-full tw-overflow-y-auto"
-      style={{ 
+      className="tw-fixed tw-inset-0 tw-z-[99999] tw-bg-black/80 tw-flex tw-items-center tw-justify-center tw-min-h-screen"
+      style={{
         zIndex: zIndex || 99999,
         position: 'fixed',
         top: 0,
@@ -257,7 +259,8 @@ export const First100FoundersModal = ({
         right: 0,
         bottom: 0,
         width: '100vw',
-        height: '100vh',
+        minHeight: '100vh',
+        height: '100%',
       }}
       data-testid="first100founders-modal"
     >
@@ -308,13 +311,14 @@ export const First100FoundersModal = ({
 
       {/* Content Container */}
       <div 
-        className="tw-relative tw-min-h-full tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-4 md:tw-p-8 lg:tw-p-12"
+        className="tw-relative tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-4 md:tw-p-8 lg:tw-p-12 tw-w-full tw-max-h-screen tw-overflow-y-auto"
         style={{
           position: 'relative',
-          minHeight: '100vh',
           width: '100%',
           zIndex: 10,
-          pointerEvents: 'auto'
+          pointerEvents: 'auto',
+          maxHeight: '100vh',
+          overflowY: 'auto',
         }}
       >
         {/* Close Button */}
@@ -411,6 +415,11 @@ export const First100FoundersModal = ({
       </div>
     </div>
   );
+
+  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    return createPortal(modalContent, document.body);
+  }
+  return null;
 };
 
 // Export default for easier imports
