@@ -13,8 +13,9 @@ import { X, Sparkles, Rocket, Crown, Zap, ArrowRight, Clock, CheckCircle } from 
  * @param {Function} [props.onNavigate] - Custom navigation handler function (for Next.js router.push, etc.). If not provided, will use window.location.href
  * @param {Function} [props.getCurrentPath] - Custom function to get current pathname. If not provided, will use window.location.pathname
  * @param {Object} [props.content] - Custom content overrides
- * @param {string} [props.content.title] - Custom title
- * @param {string} [props.content.subtitle] - Custom subtitle
+ * @param {string} [props.content.mainTitle] - Custom main title (large heading)
+ * @param {string} [props.content.subtitle] - Custom subtitle (badge text)
+ * @param {string} [props.content.title] - Custom title (legacy, maps to subtitle)
  * @param {string} [props.content.description] - Custom description
  * @param {string} [props.content.ctaText] - Custom CTA button text
  * @param {string} [props.content.dismissText] - Custom dismiss button text
@@ -155,11 +156,11 @@ export const First100FoundersModal = ({
     setHasShown(true);
   };
 
-  // Default benefits
+  // Default benefits (cards)
   const defaultBenefits = benefits || [
     {
       icon: <Rocket className="w-8 h-8 tw-text-blue-400" />, // blue
-      text: 'Full platform access on January 15, 2026',
+      text: 'Full Beta Launch - Now Live',
       color: 'text-blue-400',
       bg: 'from-blue-500/20 to-cyan-500/20'
     },
@@ -338,7 +339,7 @@ export const First100FoundersModal = ({
             <div className="tw-inline-flex tw-items-center tw-space-x-2 tw-bg-gradient-to-r tw-from-yellow-400 tw-to-orange-500 tw-rounded-full tw-px-8 tw-py-3 tw-shadow-2xl tw-mb-4">
               <Sparkles className="tw-w-6 tw-h-6 tw-text-white tw-animate-pulse" />
               <span className="tw-text-white tw-font-bold tw-text-base tw-uppercase tw-tracking-wider">
-                {content?.title || 'Limited Time Offer'}
+                {content?.subtitle || 'We Are Now in Full Beta Launch'}
               </span>
             </div>
             
@@ -353,15 +354,12 @@ export const First100FoundersModal = ({
                   display: 'inline-block',
                 }}
               >
-                🎉 Be One of the First 100 Founders!
+                {content?.mainTitle || 'VentureOS Beta Now Live'}
               </span>
             </h1>
             
-            <p className="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-text-white/90 tw-font-semibold tw-mb-4">
-              {content?.description || "Don't wait for the public launch!"}
-            </p>
-            <p className="tw-text-xl md:tw-text-2xl tw-text-white/70 tw-max-w-3xl tw-mx-auto">
-              Secure your spot now and get exclusive access to VentureOS platform with incredible benefits.
+            <p className="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-text-white/90 tw-font-semibold tw-mb-4 tw-max-w-4xl tw-mx-auto">
+              {content?.description || 'Join the beta and experience the future of business building with AI-powered tools. Full platform access is now available!'}
             </p>
           </div>
 
@@ -396,7 +394,7 @@ export const First100FoundersModal = ({
                 textDecoration: 'none',
               }}
             >
-              <span>{content?.ctaText || 'Reserve My Founder Spot'}</span>
+              <span>{content?.ctaText || 'Access Beta Now'}</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="tw-w-6 tw-h-6 tw-group-hover:tw-translate-x-2 tw-transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </a>
             <button
@@ -409,7 +407,7 @@ export const First100FoundersModal = ({
 
           {/* Footer Note */}
           <p className="tw-text-center tw-text-white/60 tw-text-lg md:tw-text-xl tw-mt-8">
-            {content?.footerText || '🔥 Only 100 slots available • Act fast before they\'re gone!'}
+            {content?.footerText || 'Limited beta access • Join now to secure your spot!'}
           </p>
         </div>
       </div>
