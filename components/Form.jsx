@@ -75,23 +75,26 @@ function LeadForm({ domain, setSuccess }) {
   };
 
   const showStep = () => {
-    console.log(errors);
     return (
-      <div className="">
-        <div className="input-group input-group-lg mb-3">
+      <div className="tw-w-full">
+        <p className="tw-text-white/80 tw-text-sm tw-font-medium tw-mb-3">
+          Enter your email to join the waitlist
+        </p>
+        <div className="tw-flex tw-flex-col sm:tw-flex-row tw-gap-3 tw-w-full">
           <input
-            type="text"
+            type="email"
             name="email"
-            className="form-control"
-            placeholder="Email address..."
+            placeholder="you@example.com"
+            value={data.email}
             onChange={handleChange}
+            className="tw-flex-1 tw-min-w-0 tw-h-12 sm:tw-h-11 tw-px-4 tw-rounded-xl tw-border tw-border-white/20 tw-bg-white/10 tw-text-white tw-placeholder-white/50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-cyan-400/50 focus:tw-border-cyan-400/50 tw-transition-all"
           />
           <button
-            className="btn btn-danger lg:tw-px-[3rem!important]"
             type="button"
             onClick={handleSubmit}
+            className="tw-shrink-0 tw-h-12 sm:tw-h-11 tw-px-6 tw-rounded-xl tw-font-semibold tw-bg-cyan-500 hover:tw-bg-cyan-400 tw-text-white tw-border-0 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-cyan-400/50 tw-transition-colors"
           >
-            Join The Wailist
+            Join the Waitlist
           </button>
         </div>
         {errors.validate ? <ErrorBlock msg={errors.emailError} /> : null}

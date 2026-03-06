@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 /* @tailwind base; */
 @tailwind components;
@@ -134,6 +134,30 @@ h6,
 .blink {
   -webkit-animation: blinker 1.5s linear infinite;
           animation: blinker 1.5s linear infinite;
+}
+
+/* Flash news ticker - smooth infinite scroll */
+.flash-news-ticker {
+  animation: flash-news-scroll 18s linear infinite;
+}
+
+.flash-news-ticker:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-news-ticker {
+    animation: none;
+  }
+}
+
+@keyframes flash-news-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
 }
 
 @-webkit-keyframes blinker {
